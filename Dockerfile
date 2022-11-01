@@ -6,5 +6,4 @@ RUN yum install httpd -y
 EXPOSE 80
 WORKDIR /var/www/html
 COPY index.html /var/www/html
-RUN chmod -R 755 /var/www/html
 ENTRYPOINT [ "/usr/sbin/httpd", "-DFOREGROUND" ]
