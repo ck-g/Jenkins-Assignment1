@@ -5,7 +5,7 @@ pipeline
 		label 
 		{
 			label 'Master'
-			customWorkspace '/opt/Jenkins-Master'
+			customWorkspace '/opt/project1'
 		}
 	}
 	stages
@@ -17,6 +17,7 @@ pipeline
 				script
 				{
 					sh '''
+						rm -fr *
 						docker system prune -a -f
 						git init
 						git clone https://github.com/ck-g/Jenkins-Assignment1.git .
