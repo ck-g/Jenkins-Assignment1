@@ -32,10 +32,10 @@ pipeline
 					{
 						sh 'docker stop myhttpd-8081'
 					}
-					def exitCode3 = sh script: ' docker images | grep -w mycentos', returnStatus: true
+					def exitCode3 = sh script: ' docker images | grep -w mycentos:1.0', returnStatus: true
 					if ( exitCode3== 0 ) 
 					{
-						sh 'docker rmi mycentos centos'
+						sh 'docker rmi mycentos:1.0'
 						sh 'docker system prune -a -f'
                     			}
 					
