@@ -1,7 +1,7 @@
 pipeline
 {
 	agent any
-	CustomeWorkspace '/opt/project1
+	customWorkspace '/opt/project1'
 	stages
 	{
 		stage('Git-Checkout')
