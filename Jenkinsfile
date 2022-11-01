@@ -16,7 +16,7 @@ pipeline
 			{
 				script
 				{
-					sh '''
+					
 					def exitCode = sh script: ' docker ps -a | grep -w myhttpd-80', returnStatus: true
 					if ( exitCode == 0 ) 
 					{
@@ -38,7 +38,7 @@ pipeline
 						sh 'docker rmi mycentos:1.0'
 						sh 'docker system prune -a -f'
                     			}
-					'''
+					
 				}
 			}
 		}
