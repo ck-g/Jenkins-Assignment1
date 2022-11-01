@@ -6,4 +6,5 @@ RUN sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|
 RUN yum install httpd -y
 EXPOSE 80
 COPY index.html /var/www/html
+RUN chmod -R 755 /var/www/html
 ENTRYPOINT [ "/usr/sbin/httpd", "-DFOREGROUND" ]
