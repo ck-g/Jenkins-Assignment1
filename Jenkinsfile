@@ -17,25 +17,16 @@ pipeline
 				script
 				{
 					
-					def exitCode = sh script: ' docker ps -a | grep -w myhttpd-80', returnStatus: true
+					def exitCode = sh script: ' docker ps -a | grep -w 'myhttpd-8081\|myhttpd-90\|myhttpd-80' ', returnStatus: true
 					if ( exitCode == 0 ) 
 					{
-						sh 'docker stop myhttpd-80'
+						sh 'docker stop myhttpd-80 myhttpd-90 myhttpd-8081 '
 					}
-					def exitCode1 = sh script: ' docker ps -a | grep -w myhttpd-90', returnStatus: true
-					if ( exitCode1 == 0 ) 
-					{
-						sh 'docker stop myhttpd-90'
-					}
-					def exitCode2 = sh script: ' docker ps -a | grep -w myhttpd-8081', returnStatus: true
-					if ( exitCode2 == 0 ) 
-					{
-						sh 'docker stop myhttpd-8081'
-					}
-					def exitCode3 = sh script: ' docker images | grep -w mycentos:1.0', returnStatus: true
+					
+					def exitCode3 = sh script: ' docker images | grep -w 'mycentos\|centos' ', returnStatus: true
 					if ( exitCode3== 0 ) 
 					{
-						sh 'docker rmi mycentos:1.0'
+						sh 'docker rmi mycentos centos '
 						sh 'docker system prune -a -f'
                     			}
 					
