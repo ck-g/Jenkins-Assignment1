@@ -18,7 +18,6 @@ pipeline
 				{
 					sh '''
 						docker system prune -a -f
-						git init
 						git clone https://github.com/ck-g/Jenkins-Assignment1.git .
 						git checkout 2022q1
 						docker build -t mycentos:1.0 .
